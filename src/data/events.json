@@ -1,0 +1,34 @@
+[
+  {
+    "id": "e1",
+    "title": "React Summit 2026",
+    "description": "A community-driven conference on all things React. Talks, workshops, and networking.",
+    "date": "2026-01-20T10:00",
+    "location": "Bengaluru, India",
+    "category": "Conference",
+    "attendees": [
+      "alice@example.com",
+      "bob@example.com"
+    ]
+  },
+  {
+    "id": "e2",
+    "title": "Indie Dev Meetup",
+    "description": "Casual evening meetup for indie developers to showcase projects and share ideas.",
+    "date": "2025-12-10T18:30",
+    "location": "Chennai, India",
+    "category": "Meetup",
+    "attendees": [
+      "tom@example.com"
+    ]
+  },
+  {
+    "id": "e3",
+    "title": "Full-Stack Workshop",
+    "description": "Hands-on workshop covering modern full-stack patterns with React and Node.",
+    "date": "2025-11-25T09:00",
+    "location": "Hyderabad, India",
+    "category": "Workshop",
+    "attendees": []
+  }
+]
