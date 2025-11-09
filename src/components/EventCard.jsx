@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function EventCard({ event }) {
   return (
-    <div className="card overflow-hidden">
+    <div className="card overflow-hidden shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
       <img src={`https://picsum.photos/seed/${event.id}/800/400`} alt={event.title} className="w-full h-44 object-cover" />
       <div className="p-4">
         <div className="text-sm text-gray-500">{new Date(event.date).toLocaleString()}</div>

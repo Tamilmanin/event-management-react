@@ -15,6 +15,7 @@ export default function Navbar() {
         </Link>
         <nav className="flex items-center gap-6">
           <NavLink to="/events" className={active}>Events</NavLink>
+          <NavLink to="/about" className={active}>About</NavLink>
           <NavLink to="/create" className={active}>Create</NavLink>
           {user && <NavLink to="/dashboard" className={active}>Dashboard</NavLink>}
         </nav>

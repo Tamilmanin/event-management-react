@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
+import About from './pages/About'
 import Events from './pages/Events'
 import EventDetails from './pages/EventDetails'
 import CreateEvent from './pages/CreateEvent'
@@ -17,6 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/about" element={<About />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/create" element={user ? <CreateEvent /> : <Navigate to="/login" />} />
           <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
