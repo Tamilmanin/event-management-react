@@ -7,9 +7,12 @@ export default function Navbar() {
 
   const [dark, setDark] = useState(() => {
     try {
-      return localStorage.getItem('theme') === 'dark'
+      const v = localStorage.getItem('theme')
+      if (v) return v === 'dark'
+      // default to dark when no saved preference
+      return true
     } catch (e) {
-      return false
+      return true
     }
   })
 
@@ -25,7 +28,7 @@ export default function Navbar() {
     isActive ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'
 
   return (
-    <header className="border-b bg-white">
+    <header className="border-b">
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="text-xl font-bold">
           <span className="text-blue-600">Event</span>Manage
@@ -47,7 +50,7 @@ export default function Navbar() {
 
           {user ? (
             <>
-              <span className="hidden sm:inline text-sm text-gray-600">{user.email}</span>
+              <span className="hidden sm:inline text-sm text-gray-600 dark:text-gray-300">{user.email}</span>
               <button className="btn btn-outline" onClick={logout}>Logout</button>
             </>
           ) : (
