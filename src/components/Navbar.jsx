@@ -1,8 +1,25 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useEffect, useState } from 'react'
 
 export default function Navbar() {
   const { user, logout } = useAuth()
+
+  const [dark, setDark] = useState(() => {
+    try {
+      return localStorage.getItem('theme') === 'dark'
+    } catch (e) {
+      return false
+    }
+  })
+
+  useEffect(() => {
+    if (dark) document.documentElement.classList.add('dark')
+    else document.documentElement.classList.remove('dark')
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+    } catch {}
+  }, [dark])
 
   const active = ({ isActive }) =>
     isActive ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'
@@ -20,6 +37,14 @@ export default function Navbar() {
           {user && <NavLink to="/dashboard" className={active}>Dashboard</NavLink>}
         </nav>
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => setDark(d => !d)}
+            className="btn btn-outline"
+            aria-label="Toggle theme"
+          >
+            {dark ? 'Light' : 'Dark'}
+          </button>
+
           {user ? (
             <>
               <span className="hidden sm:inline text-sm text-gray-600">{user.email}</span>

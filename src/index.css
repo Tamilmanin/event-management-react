@@ -4,11 +4,44 @@
 
 /* App-wide styles */
 :root {
+  /* primary brand color */
   --brand: #2563eb;
+
+  /* light theme */
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --btn-primary-bg: var(--brand);
+  --btn-primary-text: #ffffff;
 }
 
+/* dark theme variables - applied when document.documentElement has .dark */
+.dark {
+  --brand: #60a5fa;
+  --bg: #0f1724; /* slate-900 */
+  --text: #e6edf3;
+  --muted: #9ca3af;
+  --card-bg: #0b1220; /* slightly lighter than body for cards */
+  --border: #1f2937;
+  --btn-primary-bg: #2563eb; /* keep brand similar */
+  --btn-primary-text: #ffffff;
+}
+
+/* base layout */
 .container {
   @apply max-w-6xl mx-auto px-4;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ensure header uses card background color */
+header {
+  background-color: var(--card-bg);
 }
 
 .btn {
@@ -16,13 +49,26 @@
 }
 
 .btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
 }
 
 .btn-outline {
-  @apply border border-gray-300 text-gray-700 hover:bg-gray-100;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.03);
 }
 
 .card {
-  @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  @apply rounded-2xl shadow-sm;
 }
